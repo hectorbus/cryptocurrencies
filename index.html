@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CryptoCurrencys</title>
+  <title>CryptoCurrencies</title>
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/hover.css">
@@ -10,56 +10,74 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <div class="info hvr-grow">
-    ?
-  </div>
-  <div class="container text-center">
-    <div class="col-lg-12 currencys-container">
-      <a href="bitcoin.html">
-        <div id="bitcoin" class="col-lg-10 col-lg-offset-1 currency-container hvr-reveal">
-          <div>
-            <span class="currency-type">BTC = </span>
-            <span class="currency-price bitcoin-ask"></span>
-            <span class="currency">MXN</span>
+  <!-- <div class="info hvr-grow">?</div> -->
+  <div class="container text-right">
+    <div class="col-lg-12">
+      <div id="bitcoin" class="col-lg-12 currency-container">
+        <div class="col-md-12 col-lg-3 left-data">
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">MÁXIMO:</span>
+            <span class="high number"></span>
           </div>
-          <div class="col-lg-l2">
-            <h3></h3>
-            <h3></h3>
-            <h3></h3>
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">MÍNIMO:</span>
+            <span class="low number"></span>
           </div>
-        </div>
-      </a>
-      <a href="ethereum.html">
-        <div id="ethereum" class="col-lg-10 col-lg-offset-1 currency-container hvr-reveal">
-          <div>
-            <span class="currency-type">ETH = </span>
-            <span class="currency-price ethereum-ask"></span>
-            <span class="currency">MXN</span>
-          </div>
-          <div class="col-lg-l2">
-            <h3></h3>
-            <h3></h3>
-            <h3></h3>
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">VOLUMEN:</span>
+            <span class="volume number"></span>
           </div>
         </div>
-      </a>
-      <a href="ripple.html">
-        <div id="ripple" class="col-lg-10 col-lg-offset-1 currency-container hvr-reveal">
-          <div>
-            <span class="currency-type">XRP = </span>
-            <span class="currency-price ripple-ask"></span>
-            <span class="currency">MXN</span>
+        <div class="col-md-12 col-lg-9">
+          <span class="currency-type">BTC</span>
+          <span class="currency-price bitcoin-ask number"></span>
+          <span class="currency">MXN</span>
+        </div>
+      </div>
+      <div id="ethereum" class="col-lg-12 currency-container">
+        <div class="col-md-12 col-lg-3 left-data">
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">MÁXIMO:</span>
+            <span class="high number"></span>
           </div>
-          <div class="col-lg-l2">
-            <h3></h3>
-            <h3></h3>
-            <h3></h3>
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">MÍNIMO:</span>
+            <span class="low number"></span>
+          </div>
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">VOLUMEN:</span>
+            <span class="volume number"></span>
           </div>
         </div>
-      </a>
+        <div class="col-md-12 col-lg-9">
+          <span class="currency-type">ETH</span>
+          <span class="currency-price ethereum-ask number"></span>
+          <span class="currency">MXN</span>
+        </div>
+      </div>
+      <div id="ripple" class="col-lg-12 currency-container">
+        <div class="col-md-12 col-lg-3 left-data">
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">MÁXIMO:</span>
+            <span class="high number"></span>
+          </div>
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">MÍNIMO:</span>
+            <span class="low number"></span>
+          </div>
+          <div class="col-lg-12 col-xs-4">
+            <span class="side-title">VOLUMEN:</span>
+            <span class="volume number"></span>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-9">
+          <span class="currency-type">XRP</span>
+          <span class="currency-price ripple-ask number"></span>
+          <span class="currency">MXN</span>
+        </div>
+      </div>
     </div>
   </div>
-
   <script src="js/jquery-2.2.3.min.js" charset="utf-8"></script>
   <script src="js/bootstrap.min.js" charset="utf-8"></script>
   <script src="js/number.min.js" charset="utf-8"></script>
