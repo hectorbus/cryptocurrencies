@@ -1,7 +1,7 @@
 body {
   font-family: 'Roboto Condensed', sans-serif;
-  background-color: #1E1E1F;
-  color: #EBE9F0;
+  background-color: #E2E2E2;
+  color: #3E3E3E;
 }
 .info {
   position: fixed;
@@ -9,7 +9,7 @@ body {
   right: 10px;
   width: 40px;
   height: 40px;
-  border: 5px solid #EBE9F0;
+  border: 5px solid #F3F3F3;
   border-radius: 50%;
   cursor: pointer;
   line-height: 30px;
@@ -19,7 +19,7 @@ body {
 
 a, a:hover {
   text-decoration: none;
-  color: #EBE9F0;
+  color: #3E3E3E;
 }
 
 .container {
@@ -27,25 +27,77 @@ a, a:hover {
   vertical-align: middle;
 }
 
-.currencys-container {
-  margin-top: 3%;
-}
-
 .currency-container {
-  font-size: 10em;
-  cursor: pointer;
-  margin-left: 0 auto;
+  min-height: 200px;
+  padding-left: 0px;
+  font-size: 9.5em;
+  border-bottom: 1px dotted #3E3E3E;
+  overflow: hidden;
 }
 
 .currency-type {
   font-size: .3em;
 }
 
-.currency-price {
+.currency-type::after {
+  content: "=";
+  position: relative;
+  left: 20px;
+}
 
+.currency-price::before {
+  content: "$";
+  font-size: .5em;
+  top: -20px;
+  left: 0px;
+  position: relative;
 }
 
 .currency {
-  font-size: .2em;
-  margin-left: -10px;
+  margin-left: -1.1em;
+  font-size: 0.2em;
+}
+
+.left-data {
+  margin-top: 3%;
+  text-align: left;
+  font-size: 0.2em;
+  padding: 0px;
+}
+
+.side-title {
+  font-size: 0.5em;
+  font-weight: lighter;
+}
+
+.high::before, .low::before {
+  content: "$";
+  font-size: .5em;
+  position: relative;
+  bottom: 5px;
+}
+
+.high::after, .low::after, .volume::after {
+  font-size: .5em;
+  position: relative;
+  bottom: 0px;
+}
+
+.high::after, .low::after {
+  content: "MXN";
+}
+
+.volume::after{
+  content: "/24HRS";
+}
+
+@media (max-width: 1200px) {
+  .currency-container {
+    border-bottom: 2px dotted #3E3E3E;
+    text-align: center;
+  }
+
+  .left-data {
+    text-align: center;
+  }
 }
