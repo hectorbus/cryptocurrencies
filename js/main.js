@@ -52,7 +52,7 @@ function setTitleCurrency(currency, coin){
   $('title').text('$' + value + ' MXN/' + coin + ' | Cryptocurrencies')
 
   if(coin == 'BCH'){
-    $('title').text('$' + $.number(currency.last, 6) + ' BTC/' + coin + ' | Cryptocurrencies')
+    $('title').text('$' + $.number(currency.last, 5) + ' BTC/' + coin + ' | Cryptocurrencies')
   }
 }
 
@@ -98,8 +98,8 @@ $(document).ready(function(){
         }
 
         $('.number').number(true, 2)
-        $('.number4').number(true, 3)
-        $('.number6').number(true, 5)
+        $('.number3').number(true, 3)
+        $('.number5').number(true, 5)
       }
     })
   }
