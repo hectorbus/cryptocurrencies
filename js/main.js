@@ -49,8 +49,11 @@ function addDataCurrency($container, currency) {
 
 function setTitleCurrency(currency, coin){
   var value = $.number(currency.last, 2);
-  console.log(value)
-  $('title').text('$' + value + '/' + coin + ' | Cryptocurrencies')
+  $('title').text('$' + value + ' MXN/' + coin + ' | Cryptocurrencies')
+
+  if(coin == 'BCH'){
+    $('title').text('$' + $.number(currency.last, 6) + ' BTC/' + coin + ' | Cryptocurrencies')
+  }
 }
 
 $(document).ready(function(){
@@ -65,6 +68,7 @@ $(document).ready(function(){
 
   function getCurrency(){
     var $bitcoin = $('#bitcoin')
+    var $bitcoinCash = $('#bitcoinCash')
     var $ethereum = $('#ethereum')
     var $ripple = $('#ripple')
 
@@ -74,19 +78,19 @@ $(document).ready(function(){
       dataType: 'json',
       success: function (data) {
         btc = data.payload[0]
+        bch = data.payload[5]
         eth = data.payload[1]
         xrp = data.payload[3]
 
-        // btcVar = ((btc.last / btc.vwap) - 1) * 100
-        // ethVar = ((eth.last / eth.vwap) - 1) * 100
-        // xrpVar = ((xrp.last / xrp.vwap) - 1) * 100
-
         addDataCurrency($bitcoin, btc)
+        addDataCurrency($bitcoinCash, bch)
         addDataCurrency($ethereum, eth)
         addDataCurrency($ripple, xrp)
 
         if (titleCurrency == 'bitcoin') {
           setTitleCurrency(btc, 'BTC')
+        }else if (titleCurrency == 'bitcoinCash') {
+          setTitleCurrency(bch, 'BCH')
         }else if (titleCurrency == 'ethereum') {
           setTitleCurrency(eth, 'ETH')
         }else if (titleCurrency == 'ripple') {
@@ -94,6 +98,8 @@ $(document).ready(function(){
         }
 
         $('.number').number(true, 2)
+        $('.number4').number(true, 3)
+        $('.number6').number(true, 5)
       }
     })
   }
