@@ -4,6 +4,24 @@ body {
   color: #3E3E3E;
 }
 
+.navbar {
+  color: #fff;
+  background-color: #3E3E3E;
+  border-radius: 0px;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+  color: #9d9d9d;
+  background-color: #3e3e3e;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-family: monospace;
+  letter-spacing: 5px;
+  font-size: 1.5em;
+}
+
 .currancy-max {
   color: #109D59;
 }
@@ -12,32 +30,60 @@ body {
   color: #DC4437;
 }
 
-.sound {
+.sound, .question {
   width: 20px;
+  cursor: pointer;
   font-size: 25px;
   text-align: left;
-  position: fixed;
-  left: 15px;
-  top: 0px;
+  margin-right: 15px;
+  margin-top: 5px;
   z-index: 9999;
 }
 
-.sound i {
-  cursor: pointer;
+.question {
+  margin: 8px 8px 0px 10px;
 }
 
-.fav-star {
-  position: absolute;
-  top: 20px;
-  right: 5px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 9999;
-  color: #E2E2E2;
-  -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: #3E3E3E;
+.question a, .question a:hover{
+  color: #fff;
 }
 
+.sound span {
+  cursor: pointer;
+  font-size: 21px;
+}
+
+.dropdown .dropdown-menu {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  max-height: 0;
+  display: block;
+  overflow: hidden;
+  opacity: 0;
+  color: #9d9d9d;
+  background-color: #3e3e3e;
+}
+
+.dropdown-menu>li>a {
+  color: #9d9d9d;
+  text-decoration: none;
+  background-color: #3e3e3e !important;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:active, .dropdown-menu>li>a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #3e3e3e;
+}
+
+.dropdown:hover .dropdown-menu {
+  max-height: 200px;
+  opacity: 1;
+}
 .info {
   position: fixed;
   top: 10px;
@@ -122,8 +168,47 @@ a, a:hover {
   content: "MXN";
 }
 
+.btc-content::after, .btc-content::after {
+  content: "BTC";
+}
+
 .volume::after{
   content: "/24HRS";
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-content {
+  background-color: #E2E2E2;
+  color: #3E3E3E;
+}
+
+.modal-footer {
+  text-align: center !important;
+  border: none;
+  font-size: .8em;
+  position: relative;
+  bottom: -14px;
+}
+
+.bitso-logo{
+  margin-top: 9px;
+  width: 200px;
+}
+
+.buy-button, .buy-button:hover {
+  background-color: #4F5051;
+  color: #e2e2e2;
+}
+
+.margin-t-20{
+  margin-top: 20px;
+}
+
+.margin-t-40{
+  margin-top: 40px;
 }
 
 @media (max-width: 1200px) {
