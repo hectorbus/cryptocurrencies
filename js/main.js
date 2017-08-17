@@ -19,22 +19,21 @@ function unMuted(){
   bleep.muted = false
 }
 
-$('.sound i').click(function() {
-  $(this).toggleClass("fa-volume-up fa-volume-off");
-  return $(this).hasClass('fa-volume-up') ? unMuted() : muted();
+$('.sound span').click(function() {
+  $(this).find('.text-danger').toggle().toggleClass('mutedSound')
+  return $('.sound .text-danger').hasClass('mutedSound') ? muted() : unMuted()
 })
 
-$('.fav-star').click(function(){
-  $('.fav-star').css('color', '#E2E2E2')
-  $(this).css('color', '#FCBE1F')
-  $('title').text('Loading... | Cryptocurrencies')
-})
-
-function addDataCurrency($container, currency) {
+function addDataCurrency($container, currency, dropdown, currencyName, conveCurrency) {
   $container.find('.last-price').text(currency.last)
   $container.find('.high').text(currency.high)
   $container.find('.low').text(currency.low)
   $container.find('.volume').text(parseFloat(currency.volume).toFixed(2))
+
+  $('nav').find(dropdown).text('$' + $.number(currency.last, 2) + ' ' + conveCurrency +'/' + currencyName)
+  if (currencyName == 'BCH') {
+    $('nav').find(dropdown).text('$' + $.number(currency.last, 5) + ' ' + conveCurrency +'/' + currencyName)
+  }
 
   if(currency.high == currency.last){
     $container.find('.last-price').addClass('currancy-max')
@@ -50,20 +49,39 @@ function addDataCurrency($container, currency) {
 function setTitleCurrency(currency, coin){
   var value = $.number(currency.last, 2);
   $('title').text('$' + value + ' MXN/' + coin + ' | Cryptocurrencies')
+  $('.fav-currency').text('$' + value + ' MXN/' + coin)
 
   if(coin == 'BCH'){
     $('title').text('$' + $.number(currency.last, 5) + ' BTC/' + coin + ' | Cryptocurrencies')
+    $('.fav-currency').text('$' + $.number(currency.last, 5) + ' BTC/' + coin)
   }
 }
 
 $(document).ready(function(){
   getCurrency()
+  muted()
   setInterval(function(){
     getCurrency()
   }, 5000)
 
-  $('.fav-star').click(function(){
-    titleCurrency = $(this).closest('.currency-container').attr('id')
+  $('nav .dropdown-menu li').click(function(){
+    titleCurrency = $(this.children).attr('currencyName')
+    $('.fav-currency, title').text($(this.children).text())
+  })
+
+  $('.navbar-brand').hover(function(){
+    $(this).typeIt({
+     strings: ['CryptoCurrencies']
+    })
+  }, function(){
+    $(this).typeIt({
+     strings: ['CC'],
+     cursor: false
+    })
+  })
+
+  $('.modal-title').typeIt({
+    strings: ['CryptoCurrencies']
   })
 
   function getCurrency(){
@@ -82,10 +100,10 @@ $(document).ready(function(){
         eth = data.payload[1]
         xrp = data.payload[3]
 
-        addDataCurrency($bitcoin, btc)
-        addDataCurrency($bitcoinCash, bch)
-        addDataCurrency($ethereum, eth)
-        addDataCurrency($ripple, xrp)
+        addDataCurrency($bitcoin, btc, '.dropdown-fav-btc', 'BTC', 'MXN')
+        addDataCurrency($bitcoinCash, bch, '.dropdown-fav-bch', 'BCH', 'BTC')
+        addDataCurrency($ethereum, eth, '.dropdown-fav-eth', 'ETH', 'MXN')
+        addDataCurrency($ripple, xrp, '.dropdown-fav-xrp', 'XRP', 'MXN')
 
         if (titleCurrency == 'bitcoin') {
           setTitleCurrency(btc, 'BTC')
