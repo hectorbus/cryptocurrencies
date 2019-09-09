@@ -93,8 +93,10 @@ $(document).ready(function(){
     $.ajax({
       type: 'GET',
       url: 'https://api.bitso.com/v3/ticker/',
-      dataType: 'json',
+      dataType: 'jsonp',
+      crossDomain: true,
       success: function (data) {
+        console.log(data);
         btc = data.payload[0]
         bch = data.payload[5]
         eth = data.payload[1]
